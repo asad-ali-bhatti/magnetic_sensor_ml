@@ -89,9 +89,6 @@ devices = data_frame['device_id'] - 1
 readings = data_frame['reading']
 prediction = model.predict(readings)
 print('prediction: ', prediction)
-predicted_device = devices_data_frame['name'][np.argmax(prediction[0])]
-print(devices_data_frame)
-print('Predicted Device: ', predicted_device)
 
 
 def select_winner(predictions):
@@ -110,4 +107,7 @@ def select_winner(predictions):
     return max(candidates, key=candidates.get)
 
 
-select_winner(prediction)
+predicted_device = devices_data_frame['name'][select_winner(prediction)]
+print(devices_data_frame)
+print('Predicted Device: ', predicted_device)
+print(select_winner(prediction))
