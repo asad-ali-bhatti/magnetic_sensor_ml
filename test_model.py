@@ -100,8 +100,8 @@ def select_winner(predictions):
         print('predict: ', pred)
         max_index = np.argmax(pred)
         print('max', max_index)
-        if candidates.get(max_index) == 1:
-            candidates[max_index] = candidates[max_index] + 1
+        if candidates.get(max_index) and candidates.get(max_index) >= 1:
+            candidates[max_index] = candidates.get(max_index) + 1
         else:
             candidates[max_index] = 1
 
